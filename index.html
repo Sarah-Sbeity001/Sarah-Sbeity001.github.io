@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sarah Sbeity - Data and Business Analyst portfolio.">
+<style>*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%;height:auto}a{color:inherit}</style>
+<title>Sarah Sbeity — Data & Business Analyst</title>
+
+<style>
+  :root{
+    --bg:#0a0e14;
+    --bg-2:#0f1620;
+    --panel:#121a26;
+    --panel-2:#16202e;
+    --line:#1f2c3d;
+    --text:#dbe4ee;
+    --muted:#8a9bb0;
+    --dim:#5f7186;
+    --accent:#3ddc97;
+    --accent-2:#4ea8ff;
+    --accent-glow:rgba(61,220,151,.18);
+    --mono:'JetBrains Mono','Fira Code','SF Mono',ui-monospace,'Cascadia Code',Consolas,Menlo,monospace;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:var(--bg)}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background:radial-gradient(1100px 600px at 85% -10%,rgba(78,168,255,.05),transparent 65%);
+    pointer-events:none;z-index:0;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+
+  /* Nav */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,20,.72);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:.5px}
+  .logo span{color:var(--accent)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--accent)}
+  @media(max-width:660px){.nav-links{display:none}}
+
+  /* Hero */
+  header{padding:88px 0 64px}
+  .tag{
+    font-family:var(--mono);font-size:13px;color:var(--accent);
+    display:inline-flex;align-items:center;gap:9px;margin-bottom:22px;
+    border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+    background:var(--panel);
+  }
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 0 var(--accent-glow);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-glow)}70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+  h1{font-size:clamp(38px,6vw,66px);line-height:1.05;font-weight:800;letter-spacing:-1.5px;margin-bottom:18px}
+  h1 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:680px;margin-bottom:32px}
+  .lead strong{color:var(--text);font-weight:600}
+  .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono);font-size:14px;padding:12px 22px;border-radius:10px;
+    border:1px solid var(--line);transition:.2s;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn svg{width:16px;height:16px;fill:currentColor}
+  .btn.primary{background:var(--accent);color:#06281c;border-color:var(--accent);font-weight:600}
+  .btn.primary:hover{box-shadow:0 8px 30px var(--accent-glow);transform:translateY(-2px)}
+  .btn.ghost{color:var(--text);background:var(--panel)}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:54px}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+  .stat .n{font-size:28px;font-weight:800;letter-spacing:-1px;color:var(--accent)}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:4px}
+
+  /* Sections */
+  section{padding:72px 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  .shead{display:flex;align-items:baseline;gap:14px;margin-bottom:40px}
+  .shead .num{font-family:var(--mono);color:var(--accent);font-size:15px}
+  .shead h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-1px}
+  .shead .rule{flex:1;height:1px;background:var(--line)}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:28px}}
+  .about p{color:var(--muted);font-size:16px;margin-bottom:16px}
+  .about p strong{color:var(--text)}
+  .focus{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .focus h3{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:18px;letter-spacing:.5px}
+  .focus ul{list-style:none}
+  .focus li{display:flex;gap:11px;padding:8px 0;font-size:14.5px;color:var(--text);border-bottom:1px solid var(--line)}
+  .focus li:last-child{border-bottom:0}
+  .focus li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:.62em}
+
+  /* Project */
+  .project{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .project .plabel{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.5px;margin-bottom:14px}
+  .project .ptitle{font-size:22px;font-weight:800;letter-spacing:-.6px;margin-bottom:12px}
+  .project p{color:var(--muted);font-size:15.5px;margin-bottom:16px;max-width:760px}
+  .project .pages{font-family:var(--mono);font-size:12.5px;color:var(--accent-2);margin-bottom:20px}
+  .project .chips{margin-bottom:24px}
+
+  /* Timeline */
+  .timeline{position:relative;margin-left:6px}
+  .job{position:relative;padding:0 0 38px 34px;border-left:2px solid var(--line)}
+  .job:last-child{border-left-color:transparent;padding-bottom:0}
+  .job::before{content:"";position:absolute;left:-8px;top:4px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px var(--bg),0 0 14px var(--accent-glow)}
+  .job .when{font-family:var(--mono);font-size:12.5px;color:var(--accent);letter-spacing:.4px}
+  .job .role{font-size:19px;font-weight:700;margin:5px 0 2px}
+  .job .co{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+  .job .co .type{color:var(--dim)}
+  .job ul{list-style:none;display:grid;gap:9px}
+  .job li{position:relative;padding-left:22px;font-size:14.5px;color:var(--muted)}
+  .job li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent-2)}
+  .job li strong{color:var(--text)}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:720px){.skills-grid{grid-template-columns:1fr}}
+  .skillcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .skillcard h3{font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:15px;letter-spacing:.4px}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{font-family:var(--mono);font-size:12.5px;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:8px;padding:6px 12px;color:var(--text);transition:.18s}
+  .chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+  /* Education */
+  .edu{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .edu .deg{font-size:19px;font-weight:700}
+  .edu .uni{color:var(--muted);font-size:14.5px;margin:3px 0 16px}
+  .edu .when{font-family:var(--mono);font-size:12.5px;color:var(--accent)}
+  .edu ul{list-style:none;display:grid;gap:9px;margin-top:6px}
+  .edu li{position:relative;padding-left:22px;font-size:14.5px;color:var(--muted)}
+  .edu li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .edu li strong{color:var(--text)}
+
+  /* Contact */
+  .contact{text-align:center;padding-bottom:96px}
+  .contact .shead{justify-content:center}
+  .contact h2.big{font-size:clamp(30px,5vw,48px);font-weight:800;letter-spacing:-1.5px;margin-bottom:16px}
+  .contact p{color:var(--muted);max-width:520px;margin:0 auto 34px;font-size:16.5px}
+  .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .links a{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:14px;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 20px;transition:.2s;
+  }
+  .links a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+  .links svg{width:17px;height:17px;fill:currentColor}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--dim)}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .reveal{animation:fadeUp .7s ease both}
+  @media(prefers-reduced-motion:reduce){.reveal{animation:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">Sarah Sbeity<span>.</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="tag"><span class="pulse"></span>Available for data &amp; business analyst roles</div>
+    <h1>Turning complex data into<br><span class="grad">decision-ready insight.</span></h1>
+    <p class="lead">I'm <strong>Sarah Sbeity</strong>, a Data &amp; Business Analyst specializing in <strong>Power BI dashboards</strong>, SQL data modeling, and Excel analysis across finance, M&amp;A, and operations. I turn raw data into clear, actionable insight that supports better business decisions.</p>
+    <div class="cta">
+      <a class="btn primary" href="#project">View my dashboard</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">3+</div><div class="l">Years in data &amp; analytics</div></div>
+      <div class="stat"><div class="n">Power BI</div><div class="l">Dashboards &amp; reporting</div></div>
+      <div class="stat"><div class="n">Excel</div><div class="l">Advanced analysis &amp; models</div></div>
+      <div class="stat"><div class="n">M&amp;A</div><div class="l">Valuation &amp; benchmarking</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="shead reveal"><span class="num">01.</span><h2>About</h2><div class="rule"></div></div>
+    <div class="about-grid">
+      <div class="about reveal">
+        <p>I'm a data and business analyst who works where <strong>data engineering meets business strategy</strong> — building the pipelines and dashboards, then reading the story the numbers tell. At <strong>StratHaus</strong>, I design interactive Power BI dashboards, analyze complex financial datasets in Excel, and support M&amp;A valuation by benchmarking peer companies and assessing deal multiples.</p>
+        <p>My background spans the modern data stack: <strong>ETL/ELT with Talend, SSIS, and Azure Data Factory</strong>, data warehousing and OLAP cubes, and data governance with Microsoft Purview — foundations I built as a data engineer at <strong>Thales Middle East</strong>. I turn these into Power BI reports and Excel models that decision-makers actually use.</p>
+        <p>I care about making data trustworthy and useful: clean data models, clear KPIs, and analysis aligned to real business objectives. I hold a <strong>Computer &amp; Communication Engineering</strong> diploma from the Lebanese University.</p>
+      </div>
+      <div class="focus reveal">
+        <h3>What I focus on</h3>
+        <ul>
+          <li>Power BI dashboards &amp; reporting</li>
+          <li>ETL/ELT pipeline design</li>
+          <li>Data modeling &amp; warehousing</li>
+          <li>Excel analysis &amp; data models</li>
+          <li>M&amp;A valuation &amp; benchmarking</li>
+          <li>Odoo ERP workflows</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <div class="shead reveal"><span class="num">02.</span><h2>Featured Project</h2><div class="rule"></div></div>
+    <div class="project reveal">
+      <div class="plabel">Power BI · Case study</div>
+      <div class="ptitle">Commercial Sales Dashboard</div>
+      <p>A multi-page Power BI dashboard analyzing global beer sales across brands, countries, and channels — from an executive KPI overview to a customer-level decomposition tree and constant-currency (FX) impact reporting in EUR. Built on a star-schema data model with reusable DAX measures and field parameters, it turns a raw brewery sales dataset into an interactive, decision-ready report.</p>
+      <div class="pages">// 3 report pages · Executive Overview · Performance Drivers · FX Impact (EUR)</div>
+      <div class="chips">
+        <span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span>
+        <span class="chip">Star Schema</span><span class="chip">Field Parameters</span><span class="chip">FX Analysis</span>
+      </div>
+      <a class="btn ghost" href="https://github.com/Sarah-Sbeity001/CommercialDashboard" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="shead reveal"><span class="num">03.</span><h2>Experience</h2><div class="rule"></div></div>
+    <div class="timeline">
+
+      <div class="job reveal">
+        <div class="when">2024/10 – Present</div>
+        <div class="role">Data Analytics</div>
+        <div class="co">StratHaus · Beirut, Lebanon</div>
+        <ul>
+          <li>Contributed to defining a <strong>product-analytics strategy</strong> to align data with key business objectives.</li>
+          <li>Designed interactive <strong>Power BI dashboards</strong> and reports supporting data-driven decisions.</li>
+          <li>Analyzed complex financial datasets in <strong>Excel</strong> using advanced formulas, pivot tables, and data models.</li>
+          <li>Supported <strong>M&amp;A valuation</strong> by benchmarking peer companies and assessing deal multiples.</li>
+          <li>Designed and implemented business workflows in <strong>Odoo ERP</strong>, including customization and user support.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">2024/03 – 2024/09</div>
+        <div class="role">Data Engineer</div>
+        <div class="co">Thales Middle East s.a.l · Beirut, Lebanon <span class="type">· Internship</span></div>
+        <ul>
+          <li>Explored data governance and cataloging with <strong>Microsoft Purview</strong> for data quality and compliance.</li>
+          <li>Designed and developed <strong>ETL processes</strong> to extract, transform, and load data from various sources.</li>
+          <li>Applied data-warehousing concepts to structure and optimize repositories for analytics and reporting.</li>
+          <li>Built Power BI visualizations and reports; tuned queries via database-management techniques.</li>
+          <li>Version-controlled work across environments with <strong>GitLab and Azure DevOps</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">2022/04 – 2023/12</div>
+        <div class="role">Data &amp; Business Analysis</div>
+        <div class="co">TextYanzo · Dubai <span class="type">· Remote</span></div>
+        <ul>
+          <li>Researched and analyzed <strong>influencer partnerships</strong>, evaluating engagement and audience alignment.</li>
+          <li>Analyzed customer and sales data from <strong>CRM systems</strong> to identify trends and support business decisions.</li>
+        </ul>
+      </div>
+
+      <div class="job reveal">
+        <div class="when">2023/08 – 2023/09</div>
+        <div class="role">Web Developer</div>
+        <div class="co">Vanrise Solutions · Beirut, Lebanon <span class="type">· Internship</span></div>
+        <ul>
+          <li>Developed a full-stack web application using <strong>HTML, CSS, and the Angular framework</strong>.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="shead reveal"><span class="num">04.</span><h2>Skills &amp; Stack</h2><div class="rule"></div></div>
+    <div class="skills-grid">
+      <div class="skillcard reveal">
+        <h3>Data Engineering &amp; BI</h3>
+        <div class="chips">
+          <span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">DAX</span>
+          <span class="chip">Power Query</span><span class="chip">Talend</span><span class="chip">SSIS</span>
+          <span class="chip">SSAS</span><span class="chip">Azure Data Factory</span><span class="chip">OLAP Cubes</span>
+        </div>
+      </div>
+      <div class="skillcard reveal">
+        <h3>Cloud &amp; Databases</h3>
+        <div class="chips">
+          <span class="chip">Azure</span><span class="chip">Google Cloud Platform</span><span class="chip">AWS</span>
+          <span class="chip">SQL Server</span><span class="chip">Odoo ERP</span>
+        </div>
+      </div>
+      <div class="skillcard reveal">
+        <h3>Programming &amp; Databases</h3>
+        <div class="chips">
+          <span class="chip">SQL</span><span class="chip">Python</span><span class="chip">C</span>
+          <span class="chip">C++</span><span class="chip">DAX</span>
+        </div>
+      </div>
+      <div class="skillcard reveal">
+        <h3>Data &amp; Governance</h3>
+        <div class="chips">
+          <span class="chip">ETL / ELT</span><span class="chip">Data Modeling</span><span class="chip">Data Warehousing</span>
+          <span class="chip">Star Schema</span><span class="chip">Version Control</span><span class="chip">M&amp;A Benchmarking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shead reveal" style="margin-top:64px"><span class="num">05.</span><h2>Education</h2><div class="rule"></div></div>
+    <div class="edu reveal">
+      <div class="when">2019/10 – 2024/03</div>
+      <div class="deg">Computer &amp; Communication Engineering Diploma</div>
+      <div class="uni">Lebanese University · Hadath, Lebanon</div>
+      <ul>
+        <li>Selected for international <strong>RL4ENG workshops</strong>, recognized by the School of Computer Science Engineering, Albacete (Spain) for work in remote and virtual laboratories with Raspberry Pi, Linux, and Docker.</li>
+        <li>Completed a development &amp; virtual-laboratories training program awarded by <strong>Hochschule Bonn-Rhein-Sieg</strong> University of Applied Sciences, Germany.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="shead reveal"><span class="num">06.</span><h2>Contact</h2><div class="rule"></div></div>
+    <h2 class="big reveal">Let's turn your data into decisions.</h2>
+    <p class="reveal">Open to data &amp; business analyst roles and Power BI dashboard work. Reach out anytime — I'm happy to walk you through my work.</p>
+    <div class="links reveal">
+      <a href="mailto:sarah_sbeity001@hotmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+        sarah_sbeity001@hotmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/sarah-sbeity1" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 17V10H6v7h2.34zM7.17 8.9a1.36 1.36 0 1 0 0-2.72 1.36 1.36 0 0 0 0 2.72zM18 17v-3.86c0-2.06-1.1-3.02-2.57-3.02-1.19 0-1.72.65-2.02 1.11V10H11.1v7h2.34v-3.9c0-.21.02-.41.08-.56.16-.41.54-.84 1.17-.84.83 0 1.16.63 1.16 1.55V17H18z"/></svg>
+        linkedin.com/in/sarah-sbeity1
+      </a>
+      <a href="https://github.com/Sarah-Sbeity001" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.39 1.24-3.23-.13-.31-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.25 2.87.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.63-2.81 5.65-5.49 5.95.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.22.7.83.58A12 12 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/></svg>
+        github.com/Sarah-Sbeity001
+      </a>
+      <a href="tel:+96178840016">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+        +961 78 840 016
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>Designed &amp; built by Sarah Sbeity · Beirut, Lebanon</p></div>
+</footer>
+
+</body>
+</html>
